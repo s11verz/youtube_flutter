@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:youtube_flutter/src/components/custom_appbar.dart';
+import 'package:youtube_flutter/src/components/video_widget.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -8,22 +10,24 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.white,
-              title: CustomAppBar(),
-              floating: true,
-              snap: true,
-            ),
-            SliverList(delegate: SliverChildBuilderDelegate((context, index){
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(height: 150, color: Colors.grey,),
-              );
+      slivers: [
+        const SliverAppBar(
+          backgroundColor: Colors.white,
+          title: CustomAppBar(),
+          floating: true,
+          snap: true,
+        ),
+        SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+          return GestureDetector(
+            onTap: () {
+              Get.toNamed('/detail/2342');
             },
-            childCount: 10))
-          ],
-        )
-    );
+            child:  VideoWidget(),
+
+          );
+        }, childCount: 10))
+      ],
+    ));
   }
 }
