@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:youtube_flutter/src/binding/init_binding.dart';
 import 'package:youtube_flutter/src/app.dart';
 
 
@@ -24,10 +25,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      initialRoute: "/",
-      getPages: [
-        GetPage(name: "/", page: ()=>App())
-      ],
+     initialBinding: InitBinding(),
+     initialRoute: '/',
+     getPages: [
+       GetPage(name: '/', page: ()=>App())
+     ],
     );
   }
 }
